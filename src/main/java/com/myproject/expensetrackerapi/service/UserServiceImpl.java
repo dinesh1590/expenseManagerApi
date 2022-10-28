@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService{
 
         User newUser=new User();
         BeanUtils.copyProperties(user,newUser);
-        user.setPassword(bcryptEncoder.encode(newUser.getPassword()));
+        newUser.setPassword(bcryptEncoder.encode(newUser.getPassword()));
         return userRepo.save(newUser);
     }
 
